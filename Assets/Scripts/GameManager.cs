@@ -1,20 +1,22 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
-    public float AutoDropTime => autoDropTime;
-
+    
     public static GameManager Instance;
-    public bool IsBuildingPhase { get; private set; } = true;
     
     [SerializeField] GameObject playerPrefab;
     [SerializeField] Transform playerSpawnPoint;
     
     [SerializeField] GameObject[] tetrominoPrefabs;
-    [SerializeField] Transform tetrominoSpawnerTransform;
+    [SerializeField] Transform tetrominoSpawnPoint;
+    [SerializeField] Sprite[] tetrominoSprites;
+    [SerializeField] Image[] nextBlockImages; 
+    private Queue<GameObject> _nextBlocksQueue = new Queue<GameObject>();
+    private Dictionary<GameObject, Sprite> _blockSpriteMap = new Dictionary<GameObject, Sprite>();
     
-    [SerializeField] float autoDropTime = 0f;
-
     [SerializeField] public Transform endPoint;
     public bool canSpawn = true;
     const int HEIGHT = 22;
@@ -22,23 +24,63 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        InitializeBlockSpriteMap(); // 初始化方块与Sprite的映射
+        InitializeNextBlocksQueue(); // 初始化队列
+        UpdateNextBlocksUI(); // 更新UI
         SpawnTetromino();
+    }
+    
+    void InitializeBlockSpriteMap()
+    {
+        for (int i = 0; i < tetrominoPrefabs.Length; i++)
+        {
+            _blockSpriteMap.Add(tetrominoPrefabs[i], tetrominoSprites[i]);
+        }
+    }
+    
+    void InitializeNextBlocksQueue()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            AddRandomBlockToQueue();
+        }
+    }
+    
+    void AddRandomBlockToQueue()
+    {
+        GameObject randomPrefab = tetrominoPrefabs[Random.Range(0, tetrominoPrefabs.Length)];
+        _nextBlocksQueue.Enqueue(randomPrefab);
+    }
+    
+    void UpdateNextBlocksUI()
+    {
+        GameObject[] nextBlocks = _nextBlocksQueue.ToArray();
+        for (int i = 0; i < 3; i++)
+        {
+            if (i < nextBlocks.Length && _blockSpriteMap.ContainsKey(nextBlocks[i]))
+            {
+                nextBlockImages[i].sprite = _blockSpriteMap[nextBlocks[i]];
+            }
+        }
     }
     
     public void SpawnTetromino()
     {
-        // 检查是否超过最大高度
-        if(!canSpawn || tetrominoSpawnerTransform.position.z >= HEIGHT || 
-           Vector3.Distance(tetrominoSpawnerTransform.position, endPoint.position) < 1f)
+        if (!canSpawn || tetrominoSpawnPoint.position.z >= HEIGHT || 
+            Vector3.Distance(tetrominoSpawnPoint.position, endPoint.position) < 1f)
         {
             canSpawn = false;
             SpawnPlayer();
             return;
         }
-        
-        Instantiate(tetrominoPrefabs[Random.Range(0, tetrominoPrefabs.Length)], 
-            tetrominoSpawnerTransform.position, 
-            Quaternion.identity);
+
+        // 从队列头部取出下一个方块
+        GameObject nextBlock = _nextBlocksQueue.Dequeue();
+        Instantiate(nextBlock, tetrominoSpawnPoint.position, Quaternion.identity);
+
+        // 补充新方块到队列
+        AddRandomBlockToQueue();
+        UpdateNextBlocksUI(); // 刷新UI
     }
     
     void SpawnPlayer()

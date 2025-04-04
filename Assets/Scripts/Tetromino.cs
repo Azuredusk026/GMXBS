@@ -11,8 +11,7 @@ public class Tetromino : MonoBehaviour
     const int HEIGHT = 22;
 
     const float ROTATE_ANGLE = 90f;
-    float dropTime;
-    float dropTimer;
+
     #endregion
 
     #region UNITY EVENT FUNCTIONS
@@ -34,20 +33,9 @@ public class Tetromino : MonoBehaviour
         PlayerInput.onRotate -= Rotate;
     }
     
-    void Start()
-    {
-        dropTime = GameManager.Instance.AutoDropTime;
-    }
 
     void FixedUpdate()
     {
-        dropTimer += Time.fixedDeltaTime;
-
-        if (dropTimer >= dropTime)
-        {
-            dropTimer = 0f;
-            MoveDown();
-        }
 
         if (PlayerInput.keepMoveLeft)
         {
@@ -57,6 +45,10 @@ public class Tetromino : MonoBehaviour
         if (PlayerInput.keepMoveRight)
         {
             MoveRight();
+        }
+        if (PlayerInput.keepDrop)
+        {
+            MoveDown();
         }
     }
     #endregion
@@ -128,12 +120,12 @@ public class Tetromino : MonoBehaviour
 
     void Drop()
     {
-        dropTime = Time.fixedDeltaTime;
+        MoveDown();
     }
 
     void CancelDrop()
     {
-        dropTime = GameManager.Instance.AutoDropTime;
+
     }
     #endregion
 

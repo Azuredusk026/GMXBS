@@ -14,6 +14,7 @@ public class PlayerInput : MonoBehaviour, InputActions.IGameplayActions
 
     public static bool keepMoveLeft = false;
     public static bool keepMoveRight = false;
+    public static bool keepDrop = false;
 
     const float BUTTON_HOLD_TIME = 0.4f;
 
@@ -96,12 +97,21 @@ public class PlayerInput : MonoBehaviour, InputActions.IGameplayActions
         if (context.performed)
         {
             onDrop.Invoke();
+            StartCoroutine(nameof(KeepDropCoroutine));
         }
 
         if (context.canceled)
         {
-            onCancelDrop.Invoke();
+            StopCoroutine(nameof(KeepDropCoroutine));
+            keepDrop = false;
         }
+    }
+    
+    IEnumerator KeepDropCoroutine()
+    {
+        yield return waitForButtonHoldTime;
+
+        keepDrop = true;
     }
 
     public void OnRotate(InputAction.CallbackContext context)

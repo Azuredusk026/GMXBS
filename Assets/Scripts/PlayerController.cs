@@ -39,7 +39,6 @@ public class PlayerController : MonoBehaviour, InputActions.IGameplayActions
     {
         if(!isActive) return;
         
-        // 在XZ平面移动
         Vector3 movement = new Vector3(movementInput.x, 0, movementInput.y);
         transform.Translate(movement * moveSpeed * Time.deltaTime);
     }
