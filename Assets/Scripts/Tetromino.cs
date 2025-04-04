@@ -7,8 +7,8 @@ public class Tetromino : MonoBehaviour
     #region FIELDS
     static Transform[,] grid = new Transform[WIDTH, HEIGHT];
     
-    const int WIDTH = 10;
-    const int HEIGHT = 22;
+    const int WIDTH = 9;
+    const int HEIGHT = 13;
 
     const float ROTATE_ANGLE = 90f;
 

@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     
     [SerializeField] public Transform endPoint;
     public bool canSpawn = true;
-    const int HEIGHT = 22;
+    const int HEIGHT = 13;
     
     void Awake()
     {
