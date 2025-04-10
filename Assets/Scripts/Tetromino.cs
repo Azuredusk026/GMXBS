@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Tetromino : MonoBehaviour
@@ -9,9 +7,7 @@ public class Tetromino : MonoBehaviour
     
     const int WIDTH = 9;
     const int HEIGHT = 13;
-
     const float ROTATE_ANGLE = 90f;
-
     #endregion
 
     #region UNITY EVENT FUNCTIONS
@@ -32,28 +28,16 @@ public class Tetromino : MonoBehaviour
         PlayerInput.onCancelDrop -= CancelDrop;
         PlayerInput.onRotate -= Rotate;
     }
-    
 
     void FixedUpdate()
     {
-
-        if (PlayerInput.keepMoveLeft)
-        {
-            MoveLeft();
-        }
-
-        if (PlayerInput.keepMoveRight)
-        {
-            MoveRight();
-        }
-        if (PlayerInput.keepDrop)
-        {
-            MoveDown();
-        }
+        if (PlayerInput.keepMoveLeft) MoveLeft();
+        if (PlayerInput.keepMoveRight) MoveRight();
+        if (PlayerInput.keepDrop) MoveDown();
     }
     #endregion
 
-    #region GENERIC
+    #region MOVEMENT LOGIC
     bool Movable
     {
         get
@@ -68,7 +52,6 @@ public class Tetromino : MonoBehaviour
                     return false;
                 }
             }
-
             return true;
         }
     }
@@ -79,12 +62,20 @@ public class Tetromino : MonoBehaviour
         {
             int x = Mathf.RoundToInt(child.position.x);
             int z = Mathf.RoundToInt(child.position.z);
-            grid[x, z] = child;
+            
+            if (x >= 0 && x < WIDTH && z >= 0 && z < HEIGHT)
+            {
+                grid[x, z] = child;
+            }
+            else
+            {
+                Debug.LogWarning($"Block landed out of bounds at ({x}, {z})");
+            }
         }
     }
     #endregion
 
-    #region  HORIZONTAL MOVE
+    #region MOVEMENT METHODS
     void MoveLeft()
     {
         transform.position += Vector3.left;
@@ -96,9 +87,7 @@ public class Tetromino : MonoBehaviour
         transform.position += Vector3.right;
         if (!Movable) transform.position += Vector3.left;
     }
-    #endregion
 
-    #region  VERTICAL MOVE
     void MoveDown()
     {
         transform.position += Vector3.back;
@@ -107,34 +96,37 @@ public class Tetromino : MonoBehaviour
             transform.position += Vector3.forward;
             Land();
             enabled = false;
-            bool atTop = Mathf.RoundToInt(transform.position.z) >= HEIGHT - 2;
-            bool atEnd = Vector3.Distance(transform.position, GameManager.Instance.endPoint.position) < 2f;
-        
-            if(atTop || atEnd)
-            {
-                GameManager.Instance.canSpawn = false;
-            }
-            GameManager.Instance.SpawnTetromino();
+            
+            CheckGamePhaseTransition();
         }
     }
 
-    void Drop()
-    {
-        MoveDown();
-    }
-
-    void CancelDrop()
-    {
-
-    }
+    void Drop() => MoveDown();
+    void CancelDrop() { } // 保留接口，暂不实现
     #endregion
 
-    #region ROTATE
+    #region ROTATION
     void Rotate()
     {
         transform.Rotate(Vector3.up, ROTATE_ANGLE);
         if (!Movable) transform.Rotate(Vector3.up, -ROTATE_ANGLE);
     }
     #endregion
-    
+
+    #region GAME PHASE TRANSITION
+    void CheckGamePhaseTransition()
+    {
+        bool atTop = Mathf.RoundToInt(transform.position.z) >= HEIGHT - 2;
+        bool atEnd = Vector3.Distance(transform.position, 
+                    TetrominoSpawner.Instance.endPoint.position) < 2f;
+        
+        if(atTop || atEnd)
+        {
+            TetrominoSpawner.Instance.CanSpawn = false;
+        }
+        
+        // 通知生成器生成下一个方块
+        TetrominoSpawner.Instance.SpawnNext();
+    }
+    #endregion
 }
