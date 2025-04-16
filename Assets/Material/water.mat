@@ -105,54 +105,54 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _Distortion: 1
-    - _DistortionW: -1
-    - _DistortionX: 0.49
-    - _DistortionY: -1
+    - _DistortionW: 0
+    - _DistortionX: 0
+    - _DistortionY: -0.639
     - _DstBlend: 0
     - _FlowForward: 180
     - _FlowSpeed: 50
     - _FlowSpeedX: -0.84
     - _FlowSpeedZ: 1
-    - _FoamThickness: 5.07
+    - _FoamThickness: 25.8
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _HorizontalFlowSpeed: 1
     - _Metallic: 0
     - _Mode: 0
-    - _NoiseCutOff: 1.86
+    - _NoiseCutOff: 3.54
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RampDistance: 6.4
+    - _RampDistance: 1.7
     - _RefOffset: 5.5
-    - _Refl2MaskScale: 54.1
+    - _Refl2MaskScale: 13
     - _Refl2Offset: 26.8
     - _Refl2ScaleX: 9.6
     - _Refl2ScaleZ: 4.57
-    - _ReflMaskScale: 20.5
+    - _ReflMaskScale: 14.04
     - _ReflOffset: 7.13
     - _ReflScale: 10.7
     - _ReflScaleX: 8.88
     - _ReflScaleZ: 10.75
     - _RefractAmount: 1
-    - _Scale: 5.61
+    - _Scale: 5.3
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _VerticalFlowSpeed: 1
     - _ViewDeep: 4.57
-    - _WaveForward: 0
-    - _WaveSpeed: -60
+    - _WaveForward: 90
+    - _WaveSpeed: 30
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DeepColor: {r: 0.16186056, g: 0.55345905, b: 0.3848192, a: 1}
+    - _DeepColor: {r: 0.3647059, g: 0.5803922, b: 0.4901961, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FoamColor: {r: 0.504707, g: 0.9496855, b: 0.7441877, a: 1}
-    - _Refl2Color: {r: 0.89622635, g: 1, b: 0.9515723, a: 1}
-    - _ReflColor: {r: 0, g: 0.26274502, b: 0.2274509, a: 0.6117647}
+    - _FoamColor: {r: 0.49803925, g: 0.7294118, b: 0.48235297, a: 1}
+    - _Refl2Color: {r: 0.1764706, g: 0.27058825, b: 0.2784314, a: 1}
+    - _ReflColor: {r: 0.1764706, g: 0.27058825, b: 0.2784314, a: 0.6117647}
     - _Scale: {r: 15.99, g: 1, b: 0, a: 0}
-    - _ShallowColor: {r: 0, g: 0.26415092, b: 0.22571345, a: 1}
+    - _ShallowColor: {r: 0.26666668, g: 0.4431373, b: 0.36862746, a: 1}
     - _UVOffset: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
