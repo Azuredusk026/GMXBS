@@ -82,6 +82,7 @@ GameObject:
   - component: {fileID: 8017778980569424042}
   - component: {fileID: 7370210159510812298}
   - component: {fileID: 354826035671831073}
+  - component: {fileID: 4237487346828811180}
   m_Layer: 0
   m_Name: Block (1)
   m_TagString: Untagged
@@ -132,7 +133,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f256cfd00ad7b1442baa1a32f51c4017, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -175,6 +176,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4237487346828811180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6445481404817899100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484fb40e54d41b440b666c52b0572fcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sideMaterial: {fileID: 2100000, guid: 2d09b3317130bd641a1ee7b02562d0cc, type: 2}
+  bottomMaterial: {fileID: 2100000, guid: 24ac31ddf2d9de642a0992d08e0cbc54, type: 2}
+  topMaterials:
+  - {fileID: 2100000, guid: fdcf24dfa425e7d40be1595d0c0f1cbc, type: 2}
+  - {fileID: 2100000, guid: c87f8c2d60c7cb04996af0564cd2886f, type: 2}
+  - {fileID: 2100000, guid: 6819f8a0a02d354488fff45318efd785, type: 2}
 --- !u!1 &6459927061107475304
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,6 +206,7 @@ GameObject:
   - component: {fileID: 3755256054889625940}
   - component: {fileID: 7049053226523348750}
   - component: {fileID: 4591064663937334343}
+  - component: {fileID: 1180867419928563186}
   m_Layer: 0
   m_Name: Block (2)
   m_TagString: Untagged
@@ -237,7 +257,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f256cfd00ad7b1442baa1a32f51c4017, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -280,6 +300,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1180867419928563186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6459927061107475304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484fb40e54d41b440b666c52b0572fcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sideMaterial: {fileID: 2100000, guid: 2d09b3317130bd641a1ee7b02562d0cc, type: 2}
+  bottomMaterial: {fileID: 2100000, guid: 24ac31ddf2d9de642a0992d08e0cbc54, type: 2}
+  topMaterials:
+  - {fileID: 2100000, guid: fdcf24dfa425e7d40be1595d0c0f1cbc, type: 2}
+  - {fileID: 2100000, guid: c87f8c2d60c7cb04996af0564cd2886f, type: 2}
+  - {fileID: 2100000, guid: 6819f8a0a02d354488fff45318efd785, type: 2}
 --- !u!1 &7084352537827688063
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,6 +330,7 @@ GameObject:
   - component: {fileID: 4531939918193448509}
   - component: {fileID: 2506581517719612583}
   - component: {fileID: 4555770454225196147}
+  - component: {fileID: 1929204918300834799}
   m_Layer: 0
   m_Name: Block (3)
   m_TagString: Untagged
@@ -342,7 +381,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f256cfd00ad7b1442baa1a32f51c4017, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -385,6 +424,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1929204918300834799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7084352537827688063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484fb40e54d41b440b666c52b0572fcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sideMaterial: {fileID: 2100000, guid: 2d09b3317130bd641a1ee7b02562d0cc, type: 2}
+  bottomMaterial: {fileID: 2100000, guid: 24ac31ddf2d9de642a0992d08e0cbc54, type: 2}
+  topMaterials:
+  - {fileID: 2100000, guid: fdcf24dfa425e7d40be1595d0c0f1cbc, type: 2}
+  - {fileID: 2100000, guid: c87f8c2d60c7cb04996af0564cd2886f, type: 2}
+  - {fileID: 2100000, guid: 6819f8a0a02d354488fff45318efd785, type: 2}
 --- !u!1 &8492396757070180595
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,6 +454,7 @@ GameObject:
   - component: {fileID: 774244369161690602}
   - component: {fileID: 1528491105958445013}
   - component: {fileID: 8928179518686315692}
+  - component: {fileID: 5636095275069755712}
   m_Layer: 0
   m_Name: Block
   m_TagString: Untagged
@@ -447,7 +505,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f256cfd00ad7b1442baa1a32f51c4017, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -490,3 +548,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5636095275069755712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8492396757070180595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484fb40e54d41b440b666c52b0572fcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sideMaterial: {fileID: 2100000, guid: 2d09b3317130bd641a1ee7b02562d0cc, type: 2}
+  bottomMaterial: {fileID: 2100000, guid: 24ac31ddf2d9de642a0992d08e0cbc54, type: 2}
+  topMaterials:
+  - {fileID: 2100000, guid: fdcf24dfa425e7d40be1595d0c0f1cbc, type: 2}
+  - {fileID: 2100000, guid: c87f8c2d60c7cb04996af0564cd2886f, type: 2}
+  - {fileID: 2100000, guid: 6819f8a0a02d354488fff45318efd785, type: 2}
