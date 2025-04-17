@@ -56,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FoamTex:
-        m_Texture: {fileID: 2800000, guid: cb7f6f46b281f5540b5650c6fe2a96a4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 86dfa6107f808ed48a142020db935bc2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -80,7 +80,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Refl2BumpTex:
-        m_Texture: {fileID: 2800000, guid: eda70dcbe1af667419b67f2ad93ddfb7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3f8e267c834a7a347b72c17040498704, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Refl2MaskTex:
@@ -88,7 +88,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ReflBumpTex:
-        m_Texture: {fileID: 2800000, guid: eda70dcbe1af667419b67f2ad93ddfb7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3f8e267c834a7a347b72c17040498704, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ReflMaskTex:
@@ -96,7 +96,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RefrBumpTex:
-        m_Texture: {fileID: 2800000, guid: eda70dcbe1af667419b67f2ad93ddfb7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3f8e267c834a7a347b72c17040498704, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -151,7 +151,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FoamColor: {r: 0.49803925, g: 0.7294118, b: 0.48235297, a: 1}
     - _Refl2Color: {r: 0.1764706, g: 0.27058825, b: 0.2784314, a: 1}
-    - _ReflColor: {r: 0.1764706, g: 0.27058825, b: 0.2784314, a: 0.6117647}
+    - _ReflColor: {r: 0.17647055, g: 0.2705882, b: 0.27843136, a: 0.6313726}
     - _Scale: {r: 15.99, g: 1, b: 0, a: 0}
     - _ShallowColor: {r: 0.26666668, g: 0.4431373, b: 0.36862746, a: 1}
     - _UVOffset: {r: 0, g: 0, b: 0, a: 0}
