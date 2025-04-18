@@ -75,19 +75,16 @@ public class TetrominoSpawner : MonoBehaviour
             GameManager.Instance.OnTetrominoPhaseComplete();
             return;
         }
-
-        if (!CanSpawn) return;
         
         GameObject nextBlock = _nextBlocksQueue.Dequeue();
         GameObject newTetromino = Instantiate(nextBlock, spawnPoint.position, Quaternion.identity);
         
-        // 为新生成的俄罗斯方块的所有子方块应用随机材质
         foreach (Transform child in newTetromino.transform)
         {
-            var textureController = child.GetComponent<BlockTextureController>();
-            if (textureController != null)
+            var controller = child.GetComponent<BlockTextureController>();
+            if (controller != null)
             {
-                textureController.ApplyMaterials();
+                controller.ApplyMaterials(); // 每个子方块独立随机顶面贴图
             }
         }
         
